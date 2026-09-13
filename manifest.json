@@ -1,7 +1,7 @@
 {
-  "name": "Typewriter",
-  "version": "2.3.3",
-  "minAppVersion": "0.16.0",
-  "author": "crashmoney",
-  "authorUrl": "https://github.com/crashmoney"
+	"name": "Tea and Coffee",
+	"author": "richardqnguyen",
+	"authorUrl": "https://github.com/richardqnguyen/",
+	"version": "0.0.0",
+	"minAppVersion": "1.10.6"
 }
