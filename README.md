@@ -44,7 +44,7 @@ Inspiration and/or some code were taken from the following:
 
 ### Fonts
 
-Fonts were converted to woff2 format and base64-encoded using <https://transfonter.org/>. To keep the [theme.css](theme.css) file a reasonable size, only Latin and Latin Extended Unicode blocks were encoded using. Ligatures will not load, however. The original full fonts were encoded in [fonts.css](fonts.css) using [JAD Apps Automate Font Base64 Build Script](https://jadapps.app/font-tools/guides/automate-font-base64-build-script) and can be added to CSS snippets if needed.
+Fonts were converted to woff2 format and base64-encoded using <https://transfonter.org/>. To keep the [theme.css](theme.css) file a reasonable size, only Latin and Latin Extended Unicode blocks were encoded. Ligatures will not load, however. The original full fonts were encoded in [fonts.css](fonts.css) using [JAD Apps Automate Font Base64 Build Script](https://jadapps.app/font-tools/guides/automate-font-base64-build-script) and can be added to CSS snippets if needed.
 
 - Interface
   - [Alegreya Sans (Google Fonts)](https://fonts.google.com/specimen/Alegreya+Sans)
