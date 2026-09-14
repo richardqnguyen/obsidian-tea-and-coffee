@@ -44,7 +44,7 @@ Inspiration and/or some code were taken from the following:
 
 ### Fonts
 
-Default fonts used have been base64 encoded using <https://transfonter.org> and so don't have to be installed and are available on mobile. Fonts I considered are also encoded in [fonts.css](fonts.css) and are listed below. Fonts were chosen to support Vietnamese and IPA.
+Default fonts used have been base64 encoded using <https://transfonter.org> for Extended Latin only. They were chosen specifically to support IPA and Vietnamese. They don't have to be installed and are available on mobile unless other language support is needed (all encodings are listed in [fonts.css](fonts.css)). Fonts I considered are also encoded in [fonts.css](fonts.css) and are listed below.
 
 - Interface
   - [Alegreya Sans (Google Fonts)](https://fonts.google.com/specimen/Alegreya+Sans)
