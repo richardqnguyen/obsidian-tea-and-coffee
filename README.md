@@ -44,18 +44,15 @@ Inspiration and/or some code were taken from the following:
 
 ### Fonts
 
-Default fonts used have been base64 encoded using <https://transfonter.org> for Extended Latin only. They were chosen specifically to support IPA and Vietnamese. They don't have to be installed and are available on mobile unless other language support is needed (all encodings are listed in [fonts.css](fonts.css)). Fonts I considered are also encoded in [fonts.css](fonts.css) and are listed below.
+Default fonts used have been base64 encoded using <https://transfonter.org> for Extended Latin only. They were chosen specifically to support IPA and Vietnamese. They don't have to be installed and are available on mobile unless other language support is needed. Complete encodings are listed in [fonts.css](fonts.css).
 
 - Interface
   - [Alegreya Sans (Google Fonts)](https://fonts.google.com/specimen/Alegreya+Sans)
-  - [Libertinus Sans (Google Fonts)](https://fonts.google.com/specimen/Libertinus+Sans)
-  - [CMU Concrete (Font Library)](https://fontlibrary.org/en/font/cmu-concrete)
 - Text
   - [Alegreya (Google Fonts)](https://fonts.google.com/specimen/Alegreya)
   - Times New Roman
 - Monospace
   - [Monaspace Xenon (GitHub)](https://github.com/githubnext/monaspace)
-  - [IBM Plex Mono (Google Fonts)](https://fonts.google.com/specimen/IBM+Plex+Mono)
 - Emoji
   - [DoCoMo Emoji (Monica Dinculescu)](https://meowni.ca/posts/og-emoji-font/)
   - [Noto Emoji (Google Fonts)](https://fonts.google.com/noto/specimen/Noto+Emoji)
