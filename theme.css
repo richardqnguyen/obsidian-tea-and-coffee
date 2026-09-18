@@ -389,6 +389,10 @@ code {
     --color-purple: var(--purple);
     --color-pink: var(--pink);
 
+    --color-accent: var(--purple);
+    --color-accent-1: var(--green);
+    --color-accent-2: var(--yellow);
+
     --background-primary: oklch(from var(--yellow) 0.97 0.02 h);
     --background-primary-alt: oklch(
         from var(--background-primary) calc(l * 0.98) calc(c * 0.98) h
@@ -420,32 +424,17 @@ code {
         from var(--background-primary) calc(l * 1.78) calc(c * 0.22) h
     );
 
-    --interactive-normal: oklch(from var(--background-secondary) l c h);
-    --interactive-hover: oklch(from var(--background-secondary-alt) l c h);
-    --interactive-accent: oklch(from var(--color-accent) l c h);
-    --interactive-accent-hover: oklch(from var(--color-accent-1) l c h);
-
     --text-normal: oklch(0.27 0.005 67);
     --text-muted: oklch(from var(--text-normal) l c h / 0.5);
     --text-faint: oklch(from var(--text-normal) l c h / 0.25);
-    /* --text-on-accent: ;
-	--text-on-accent-inverted: ; */
-    --text-success: oklch(from var(--green) l c h);
-    --text-warning: oklch(from var(--orange) l c h);
-    --text-error: oklch(from var(--red) l c h);
-    --text-accent: oklch(from var(--purple) l c h);
-    --text-accent-hover: oklch(from var(--text-accent) calc(l - 0.1) c h);
 
     --text-selection: oklch(from var(--blue) l c h / 0.1);
     --text-highlight-bg: oklch(from var(--yellow) l c h / 0.1);
 
-    --caret-color: oklch(from var(--text-normal) l c h);
+    --scrollbar-active-thumb-bg: oklch(0 0 0 / 0.2);
+    --scrollbar-bg: oklch(0 0 0 / 0.05);
+    --scrollbar-thumb-bg: oklch(0 0 0 / 0.1);
 
-    --vim-cursor: oklch(from var(--color-accent) l c h / 0.8);
-
-    --scrollbar-active-thumb-bg: rgba(255, 255, 255, 0.2);
-    --scrollbar-bg: rgba(255, 255, 255, 0.05);
-    --scrollbar-thumb-bg: rgba(255, 255, 255, 0.1);
     --highlight-mix-blend-mode: lighten;
 }
 
@@ -502,37 +491,43 @@ code {
         from var(--background-primary) calc(l * 0.22) calc(c * 0.22) h
     );
 
-    --interactive-normal: oklch(from var(--background-secondary) l c h);
-    --interactive-hover: oklch(from var(--background-secondary-alt) l c h);
-    --interactive-accent: oklch(from var(--color-accent) l c h);
-    --interactive-accent-hover: oklch(from var(--color-accent-1) l c h);
-
     --text-normal: oklch(0.8 0.035 82);
     --text-muted: oklch(from var(--text-normal) l c h / 0.707);
     --text-faint: oklch(from var(--text-normal) l c h / 0.5);
-    /* --text-on-accent: ;
-	--text-on-accent-inverted: ; */
+
+    --text-selection: oklch(from var(--blue) l c h / 0.3);
+    --text-highlight-bg: oklch(from var(--yellow) l c h / 0.1);
+
+    --scrollbar-active-thumb-bg: oklch(1 0 0 / 0.2);
+    --scrollbar-bg: oklch(1 0 0 / 0.05);
+    --scrollbar-thumb-bg: oklch(1 0 0 / 0.1);
+
+    --highlight-mix-blend-mode: lighten;
+}
+
+/* Main (colors) */
+body {
+    --interactive-normal: oklch(from var(--background-secondary) l c h);
+    --interactive-hover: oklch(
+        from var(--interactive-normal) calc(l - 0.1) c h
+    );
+    --interactive-accent: oklch(from var(--color-accent) l c h);
+    --interactive-accent-hover: oklch(
+        from var(--interactive-accent) calc(l - 0.1) c h
+    );
+
+    --text-on-accent: oklch(from var(--background-primary) l c h);
+    /* --text-on-accent-inverted: ; */
     --text-success: oklch(from var(--green) l c h);
     --text-warning: oklch(from var(--orange) l c h);
     --text-error: oklch(from var(--red) l c h);
     --text-accent: oklch(from var(--purple) l c h);
     --text-accent-hover: oklch(from var(--text-accent) calc(l - 0.1) c h);
 
-    --text-selection: oklch(from var(--blue) l c h / 0.3);
-    --text-highlight-bg: oklch(from var(--yellow) l c h / 0.1);
-
     --caret-color: oklch(from var(--text-normal) l c h);
 
     --vim-cursor: oklch(from var(--color-accent) l c h / 0.8);
 
-    --scrollbar-active-thumb-bg: rgba(255, 255, 255, 0.2);
-    --scrollbar-bg: rgba(255, 255, 255, 0.05);
-    --scrollbar-thumb-bg: rgba(255, 255, 255, 0.1);
-    --highlight-mix-blend-mode: lighten;
-}
-
-/* Main (colors) */
-body {
     --code-normal: var(--blue);
 }
 
