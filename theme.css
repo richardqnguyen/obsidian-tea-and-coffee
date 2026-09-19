@@ -380,18 +380,18 @@ code {
     --purple: var(--purple-l-60-max);
     --pink: var(--pink-l-60-max);
 
-    --color-red: var(--red);
-    --color-orange: var(--orange);
-    --color-yellow: var(--yellow);
-    --color-green: var(--green);
-    --color-cyan: var(--cyan);
-    --color-blue: var(--blue);
-    --color-purple: var(--purple);
-    --color-pink: var(--pink);
-
-    --color-accent: var(--purple);
-    --color-accent-1: var(--green);
-    --color-accent-2: var(--yellow);
+    --color-base-00: oklch(0.97 0 0);
+    --color-base-05: oklch(0.935 0 0);
+    --color-base-10: oklch(0.9 0 0);
+    --color-base-20: oklch(0.83 0 0);
+    --color-base-25: oklch(0.795 0 0);
+    --color-base-30: oklch(0.76 0 0);
+    --color-base-35: oklch(0.725 0 0);
+    --color-base-40: oklch(0.69 0 0);
+    --color-base-50: oklch(0.62 0 0);
+    --color-base-60: oklch(0.55 0 0);
+    --color-base-70: oklch(0.48 0 0);
+    --color-base-100: oklch(0.27 0 0);
 
     --background-primary: oklch(from var(--yellow) 0.97 0.02 h);
     --background-primary-alt: oklch(
@@ -448,18 +448,18 @@ code {
     --purple: var(--purple-d-45-even);
     --pink: var(--pink-d-60-even);
 
-    --color-red: var(--red);
-    --color-orange: var(--orange);
-    --color-yellow: var(--yellow);
-    --color-green: var(--green);
-    --color-cyan: var(--cyan);
-    --color-blue: var(--blue);
-    --color-purple: var(--purple);
-    --color-pink: var(--pink);
-
-    --color-accent: var(--purple);
-    --color-accent-1: var(--green);
-    --color-accent-2: var(--yellow);
+    --color-base-00: oklch(0.27 0 0);
+    --color-base-05: oklch(0.297 0 0);
+    --color-base-10: oklch(0.323 0 0);
+    --color-base-20: oklch(0.376 0 0);
+    --color-base-25: oklch(0.403 0 0);
+    --color-base-30: oklch(0.429 0 0);
+    --color-base-35: oklch(0.456 0 0);
+    --color-base-40: oklch(0.482 0 0);
+    --color-base-50: oklch(0.535 0 0);
+    --color-base-60: oklch(0.588 0 0);
+    --color-base-70: oklch(0.641 0 0);
+    --color-base-100: oklch(0.8 0 0);
 
     --background-primary: oklch(0.27 0.005 67);
     --background-primary-alt: oklch(
@@ -506,14 +506,30 @@ code {
 }
 
 /* Main (colors) */
-body {
+.theme-light,
+.theme-dark {
+    --color-red: var(--red);
+    --color-orange: var(--orange);
+    --color-yellow: var(--yellow);
+    --color-green: var(--green);
+    --color-cyan: var(--cyan);
+    --color-blue: var(--blue);
+    --color-purple: var(--purple);
+    --color-pink: var(--pink);
+
+    --color-accent: var(--purple);
+    --color-accent-1: var(--green);
+    --color-accent-2: var(--yellow);
+
     --interactive-normal: oklch(from var(--background-secondary) l c h);
-    --interactive-hover: oklch(
-        from var(--interactive-normal) calc(l - 0.1) c h
-    );
+    --interactive-hover: oklch(from var(--interactive-normal) l c h / 0.5);
     --interactive-accent: oklch(from var(--color-accent) l c h);
     --interactive-accent-hover: oklch(
-        from var(--interactive-accent) calc(l - 0.1) c h
+        from var(--interactive-accent) l c h / 0.5
+    );
+    --background-modifier-error: oklch(from var(--red) l c h / transparent);
+    --background-modifier-error-hover: oklch(
+        from var(--background-modifier-error) l c h / 0.005
     );
 
     --text-on-accent: oklch(from var(--background-primary) l c h);
@@ -522,7 +538,7 @@ body {
     --text-warning: oklch(from var(--orange) l c h);
     --text-error: oklch(from var(--red) l c h);
     --text-accent: oklch(from var(--purple) l c h);
-    --text-accent-hover: oklch(from var(--text-accent) calc(l - 0.1) c h);
+    --text-accent-hover: oklch(from var(--text-accent) l c h / 0.5);
 
     --caret-color: oklch(from var(--text-normal) l c h);
 
@@ -581,4 +597,16 @@ strong,
 
 .markdown-source-view {
     --file-line-width: 88ch; /* Ruff python format */
+}
+
+button.mod-destructive {
+    --background-modifier-error: var(--color-red);
+    background-color: oklch(from var(--background-modifier-error) l c h / 0.1);
+}
+
+button.mod-destructive:hover {
+    --background-modifier-error-hover: var(--color-red);
+    background-color: oklch(
+        from var(--background-modifier-error-hover) l c h / 0.05
+    );
 }
