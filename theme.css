@@ -746,21 +746,21 @@ button.mod-destructive:hover {
 
 /* --- HTML ---------------------------------------------------------------- */
 
-/* Bold */
+/* --- Bold --- */
 b,
 strong,
 .cm-strong {
     --bold-modifier: 400;
 }
 
-/* iframe */
+/* --- iframe --- */
 iframe {
     color-scheme: dark light;
     width: 100%;
     height: 700px;
 }
 
-/* Links */
+/* --- Links --- */
 body {
     --link-decoration: none;
     --link-decoration-hover: underline;
@@ -848,16 +848,19 @@ body {
 
 /* --- OTHER COMPONENTS ---------------------------------------------------- */
 
-/* Line length: https://www.uxpin.com/studio/blog/optimal-line-length-for-readability/ */
+/* --- Line length ---
+** https://www.uxpin.com/studio/blog/optimal-line-length-for-readability/ 
+** https://docs.astral.sh/ruff/rules/line-too-long/
+------------------- */
 .markdown-preview-view {
     --file-line-width: 66ch;
 }
 
 .markdown-source-view {
-    --file-line-width: 88ch; /* Ruff python format */
+    --file-line-width: 88ch;
 }
 
-/* Make workspace frameless */
+/* --- Make workspace frameless --- */
 .workspace-tab-header-container,
 .workspace-ribbon.mod-left:before,
 .mod-macos.is-hidden-frameless:not(.is-popout-window)
@@ -882,14 +885,14 @@ body {
 
 /* --- DATAVIEW ------------------------------------------------------------ */
 
-/* Inline fields */
+/* --- Inline fields --- */
 
 .dataview.inline-field-key {
     padding-left: 0.1em;
     padding-right: 0.05em;
     font-family: var(--font-monospace);
     font-size: var(--font-smallest);
-    background-color: var(--background-primary);
+    background-color: transparent;
     color: var(--text-faint);
 }
 
@@ -898,7 +901,7 @@ body {
     padding-right: 0.1em;
     font-family: var(--font-monospace);
     font-size: var(--font-smaller);
-    background-color: var(--background-primary);
+    background-color: transparent;
     color: var(--code-normal);
 }
 
