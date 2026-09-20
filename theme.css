@@ -573,9 +573,10 @@ code {
     --interactive-accent-hover: oklch(
         from var(--interactive-accent) l c h / 0.5
     );
-    --background-modifier-error: oklch(from var(--red) l c h / transparent);
+    
+    --background-modifier-error: oklch(from var(--color-red) l c h / 0.1);
     --background-modifier-error-hover: oklch(
-        from var(--background-modifier-error) l c h / 0.005
+        from var(--background-modifier-error) l c h / 0.05
     );
 
     --text-on-accent: oklch(from var(--background-primary) l c h);
@@ -616,15 +617,11 @@ code {
 /* --- BUTTONS ------------------------------------------------------------- */
 
 button.mod-destructive {
-    --background-modifier-error: var(--color-red);
-    background-color: oklch(from var(--background-modifier-error) l c h / 0.1);
+    background-color: var(--background-modifier-error);
 }
 
 button.mod-destructive:hover {
-    --background-modifier-error-hover: var(--color-red);
-    background-color: oklch(
-        from var(--background-modifier-error-hover) l c h / 0.05
-    );
+    background-color: var(--background-modifier-error-hover);
 }
 
 /* --- CALLOUTS ------------------------------------------------------------ */
