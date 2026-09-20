@@ -9,12 +9,10 @@
 
 /* --- TOC --------------------------------------------------------------------
 |_ 1. Typography
-  |_ Interface
-    |_ Alegreya Sans
-  |_ Text
-	  |_ Alegreya
-  |_ Monospace
-	  |_ Monaspace Xenon
+  |_ Font faces
+    |_ Interface
+    |_ Text
+    |_ Monospace
   |_ Typography settings
 |_ 2. Colors
   |_ Color variables
@@ -36,7 +34,7 @@
 |_ 5. Community plugins
   |_ Dataview
     |_ Inline fields
-  |_ LanguageTool
+  |_ LanguageTool Integration
 ---------------------------------------------------------------------------- */
 
 /* ============================================================================
@@ -573,7 +571,7 @@ code {
     --interactive-accent-hover: oklch(
         from var(--interactive-accent) l c h / 0.5
     );
-    
+
     --background-modifier-error: oklch(from var(--color-red) l c h / 0.1);
     --background-modifier-error-hover: oklch(
         from var(--background-modifier-error) l c h / 0.05
@@ -871,7 +869,7 @@ body {
 
 /* --- GRAPH VIEW ---------------------------------------------------------- */
 
-/* Make graph line colors more legible */
+/* --- Make graph line colors more legible --- */
 .graph-view.color-line {
     color: var(--text-faint);
 }
@@ -880,13 +878,15 @@ body {
    4. COMMUNITY PLUGINS
    ========================================================================= */
 
-/* --- DATAVIEW ------------------------------------------------------------ */
+/* --- DATAVIEW ---------------------------------------------------------------
+** https://community.obsidian.md/plugins/dataview
+---------------------------------------------------------------------------- */
 
 /* --- Inline fields --- */
 
 .dataview.inline-field-key {
-    padding-left: 0.1em;
-    padding-right: 0.05em;
+    padding-left: 1ch;
+    padding-right: 0ch;
     font-family: var(--font-monospace);
     font-size: var(--font-smallest);
     background-color: transparent;
@@ -894,15 +894,17 @@ body {
 }
 
 .dataview.inline-field-value {
-    padding-left: 0.05em;
-    padding-right: 0.1em;
+    padding-left: 1ch;
+    padding-right: 0ch;
     font-family: var(--font-monospace);
     font-size: var(--font-smaller);
     background-color: transparent;
     color: var(--code-normal);
 }
 
-/* --- LANGUAGETOOL -------------------------------------------------------- */
+/* --- LANGUAGETOOL INTEGRATION -----------------------------------------------
+** https://community.obsidian.md/plugins/obsidian-languagetool-plugin
+---------------------------------------------------------------------------- */
 
 ::spelling-error {
     text-decoration: none;
