@@ -24,6 +24,8 @@
   |_ UI
   |_ Editor
   |_ Reading mode
+  |_ Buttons
+  |_ Callouts
 ----------------------------------- */
 
 /* FONT FACES */
@@ -371,15 +373,6 @@ code {
 }
 
 .theme-light {
-    --red: var(--red-l-60-max);
-    --orange: var(--orange-l-45-max);
-    --yellow: var(--yellow-l-30-max);
-    --green: var(--green-l-45-max);
-    --cyan: var(--cyan-l-45-max);
-    --blue: var(--blue-l-60-max);
-    --purple: var(--purple-l-60-max);
-    --pink: var(--pink-l-60-max);
-
     --color-base-00: oklch(0.97 0 0);
     --color-base-05: oklch(0.935 0 0);
     --color-base-10: oklch(0.9 0 0);
@@ -392,6 +385,16 @@ code {
     --color-base-60: oklch(0.55 0 0);
     --color-base-70: oklch(0.48 0 0);
     --color-base-100: oklch(0.27 0 0);
+
+    --red: var(--red-l-60-max);
+    --orange: var(--orange-l-45-max);
+    --yellow: var(--yellow-l-30-max);
+    --green: var(--green-l-45-max);
+    --cyan: var(--cyan-l-45-max);
+    --blue: var(--blue-l-60-max);
+    --purple: var(--purple-l-60-max);
+    --pink: var(--pink-l-60-max);
+    --gray: var(--color-base-70);
 
     --background-primary: oklch(from var(--yellow) 0.97 0.02 h);
     --background-primary-alt: oklch(
@@ -439,15 +442,6 @@ code {
 }
 
 .theme-dark {
-    --red: var(--red-d-45-even);
-    --orange: var(--orange-d-60-even);
-    --yellow: var(--yellow-d-60-even);
-    --green: var(--green-d-60-even);
-    --cyan: var(--cyan-d-60-even);
-    --blue: var(--blue-d-45-even);
-    --purple: var(--purple-d-45-even);
-    --pink: var(--pink-d-60-even);
-
     --color-base-00: oklch(0.27 0 0);
     --color-base-05: oklch(0.297 0 0);
     --color-base-10: oklch(0.323 0 0);
@@ -460,6 +454,16 @@ code {
     --color-base-60: oklch(0.588 0 0);
     --color-base-70: oklch(0.641 0 0);
     --color-base-100: oklch(0.8 0 0);
+
+    --red: var(--red-d-45-even);
+    --orange: var(--orange-d-60-even);
+    --yellow: var(--yellow-d-60-even);
+    --green: var(--green-d-60-even);
+    --cyan: var(--cyan-d-60-even);
+    --blue: var(--blue-d-45-even);
+    --purple: var(--purple-d-45-even);
+    --pink: var(--pink-d-60-even);
+    --gray: var(--color-base-70);
 
     --background-primary: oklch(0.27 0.005 67);
     --background-primary-alt: oklch(
@@ -516,6 +520,7 @@ code {
     --color-blue: var(--blue);
     --color-purple: var(--purple);
     --color-pink: var(--pink);
+    --color-gray: var(--gray);
 
     --color-accent: var(--purple);
     --color-accent-1: var(--green);
@@ -545,6 +550,21 @@ code {
     --vim-cursor: oklch(from var(--color-accent) l c h / 0.8);
 
     --code-normal: var(--blue);
+
+    --callout-bug: var(--color-red);
+    --callout-default: var(--color-blue);
+    --callout-error: var(--color-red);
+    --callout-example: var(--color-purple);
+    --callout-fail: var(--color-red);
+    --callout-important: var(--color-cyan);
+    --callout-info: var(--color-yellow);
+    --callout-question: var(--color-orange);
+    --callout-success: var(--color-green);
+    --callout-summary: var(--color-cyan);
+    --callout-tip: var(--color-cyan);
+    --callout-todo: var(--color-blue);
+    --callout-warning: var(--color-orange);
+    --callout-quote: var(--color-gray);
 }
 
 b,
@@ -610,3 +630,114 @@ button.mod-destructive:hover {
         from var(--background-modifier-error-hover) l c h / 0.05
     );
 }
+
+/* CALLOUTS */
+
+.callout {
+    background-color: transparent;
+    border: double var(--callout-color);
+}
+.callout[data-callout="abstract"],
+.callout[data-callout="summary"],
+.callout[data-callout="tldr"] {
+    --callout-color: var(--callout-summary);
+    --callout-icon: lucide-notebook-text;
+}
+.callout[data-callout="info"] {
+    --callout-color: var(--callout-info);
+    --callout-icon: lucide-info;
+}
+.callout[data-callout="todo"] {
+    --callout-color: var(--callout-todo);
+    --callout-icon: lucide-check-circle-2;
+}
+.callout[data-callout="important"] {
+    --callout-color: var(--callout-important);
+    --callout-icon: lucide-flame;
+}
+.callout[data-callout="tip"],
+.callout[data-callout="hint"] {
+    --callout-color: var(--callout-tip);
+    --callout-icon: lucide-lightbulb;
+}
+.callout[data-callout="success"],
+.callout[data-callout="check"],
+.callout[data-callout="done"] {
+    --callout-color: var(--callout-success);
+    --callout-icon: lucide-check;
+}
+.callout[data-callout="question"],
+.callout[data-callout="help"],
+.callout[data-callout="faq"] {
+    --callout-color: var(--callout-question);
+    --callout-icon: lucide-circle-question-mark;
+}
+.callout[data-callout="warning"],
+.callout[data-callout="caution"],
+.callout[data-callout="attention"] {
+    --callout-color: var(--callout-warning);
+    --callout-icon: lucide-alert-triangle;
+}
+.callout[data-callout="failure"],
+.callout[data-callout="fail"],
+.callout[data-callout="missing"] {
+    --callout-color: var(--callout-fail);
+    --callout-icon: lucide-x;
+}
+.callout[data-callout="danger"],
+.callout[data-callout="error"] {
+    --callout-color: var(--callout-error);
+    --callout-icon: lucide-zap;
+}
+.callout[data-callout="bug"] {
+    --callout-color: var(--callout-bug);
+    --callout-icon: lucide-bug;
+}
+.callout[data-callout="example"] {
+    --callout-color: var(--callout-example);
+    --callout-icon: lucide-book-open-check;
+}
+.callout[data-callout="quote"],
+.callout[data-callout="cite"] {
+    --callout-color: var(--callout-quote);
+    --callout-icon: lucide-quote;
+}
+.callout[data-callout="red"] {
+    --callout-color: var(--color-red);
+}
+.callout[data-callout="orange"] {
+    --callout-color: var(--color-orange);
+}
+.callout[data-callout="yellow"] {
+    --callout-color: var(--color-yellow);
+}
+.callout[data-callout="green"] {
+    --callout-color: var(--color-green);
+}
+.callout[data-callout="cyan"] {
+    --callout-color: var(--color-cyan);
+}
+.callout[data-callout="blue"] {
+    --callout-color: var(--color-blue);
+}
+.callout[data-callout="purple"] {
+    --callout-color: var(--color-purple);
+}
+.callout[data-callout="pink"] {
+    --callout-color: var(--color-pink);
+}
+.callout[data-callout="gray"] {
+    --callout-color: var(--color-gray);
+}
+
+/* .callout {
+  overflow: hidden;
+  border-style: solid;
+  border-color: color-mix(in oklch, var(--callout-color) calc(var(--callout-border-opacity) * 100%), transparent);
+  border-width: var(--callout-border-width);
+  border-radius: var(--callout-radius);
+  margin: 1em 0;
+  mix-blend-mode: var(--callout-blend-mode);
+  background-color: color-mix(in oklch, var(--callout-color) 10%, transparent);
+  padding: var(--callout-padding);
+} */
