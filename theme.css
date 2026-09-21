@@ -23,7 +23,7 @@
   |_ Buttons
   |_ Callouts
   |_ Frontmatter
-  |_ HTML
+  |_ HTML and CSS variables
     |_ Bold
     |_ iframe
     |_ Links
@@ -40,6 +40,11 @@
 /* ============================================================================
    1. TYPOGRAPHY
    ========================================================================= */
+
+/* --- ABOUT TYPOGRAPHY -------------------------------------------------------
+** About font variants, including ligatures and numeric:
+**   https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-variant
+---------------------------------------------------------------------------- */
 
 @charset "UTF-8";
 
@@ -128,6 +133,7 @@
 /* --- MONOSPACE --------------------------------------------------------------
 ** Uses monospace serif font
 ** Check out https://monaspace.githubnext.com/
+** Monaspace Xenon-specific ligatures
 ---------------------------------------------------------------------------- */
 
 @font-face {
@@ -137,6 +143,23 @@
     font-weight: normal;
     font-style: normal;
     font-display: swap;
+    font-feature-settings:
+        "liga",
+        "calt",
+        "ss01",
+        "ss02",
+        "ss03",
+        "ss04",
+        "ss05",
+        "ss06",
+        "ss07",
+        "ss08",
+        "ss09",
+        "ss10",
+        "cv01" 0,
+        "cv02" 0,
+        "cv10" 1,
+        "cv31" 1;
 }
 
 /* --- EMOJI ------------------------------------------------------------------
@@ -155,11 +178,18 @@
 /* --- TYPOGRAPHY SETTINGS ------------------------------------------------- */
 
 body {
-    --font-interface-theme: "Alegreya Sans", "DoCoMo Emoji", sans-serif;
-    --font-text-theme: "Alegreya", "Times New Roman", "DoCoMo Emoji", serif;
-    --font-monospace-theme: "Monaspace Xenon", "DoCoMo Emoji", monospace;
+    --font-sans-serif: "Alegreya Sans", "DoCoMo Emoji", sans-serif;
+    --font-serif: "Alegreya", "Times New Roman", Times, "DoCoMo Emoji", serif;
+    --font-monospace: "Monaspace Xenon", "DoCoMo Emoji", monospace;
 
-    font-feature-settings: "pnum", "onum";
+    --font-interface: var(--font-sans-serif);
+    --font-text: var(--font-serif);
+
+    --font-interface-theme: var(--font-interface);
+    --font-text-theme: var(--font-text);
+    --font-monospace-theme: var(--font-monospace);
+
+    font-feature-settings: "onum";
     font-variant-ligatures: common-ligatures discretionary-ligatures contextual;
 
     --font-largest: 1.6em; /* 16/10 */
@@ -174,29 +204,6 @@ body {
 
     --code-size: var(--font-small);
     --bases-table-font-size: var(--font-normal-size);
-}
-
-.cm-hmd-codeblock,
-.cm-inline-code,
-.cm-templater-command,
-code {
-    font-feature-settings:
-        "liga",
-        "calt",
-        "ss01",
-        "ss02",
-        "ss03",
-        "ss04",
-        "ss05",
-        "ss06",
-        "ss07",
-        "ss08",
-        "ss09",
-        "ss10",
-        "cv01" 0,
-        "cv02" 0,
-        "cv10" 1,
-        "cv31" 1;
 }
 
 /* ============================================================================
@@ -578,7 +585,8 @@ code {
     );
 
     --text-on-accent: oklch(from var(--background-primary) l c h);
-    /* --text-on-accent-inverted: ; */
+    --text-on-accent-inverted: oklch(var(--text-normal) l c h);
+
     --text-success: oklch(from var(--green) l c h);
     --text-warning: oklch(from var(--orange) l c h);
     --text-error: oklch(from var(--red) l c h);
@@ -587,25 +595,9 @@ code {
     --text-accent-hover: oklch(from var(--text-accent) l c h / 0.5);
 
     --caret-color: oklch(from var(--text-normal) l c h);
-
     --vim-cursor: oklch(from var(--color-accent) l c h / 0.8);
 
     --code-normal: var(--blue);
-
-    --callout-bug: var(--color-red);
-    --callout-default: var(--color-blue);
-    --callout-error: var(--color-red);
-    --callout-example: var(--color-purple);
-    --callout-fail: var(--color-red);
-    --callout-important: var(--color-cyan);
-    --callout-info: var(--color-yellow);
-    --callout-question: var(--color-orange);
-    --callout-success: var(--color-green);
-    --callout-summary: var(--color-cyan);
-    --callout-tip: var(--color-cyan);
-    --callout-todo: var(--color-blue);
-    --callout-warning: var(--color-orange);
-    --callout-quote: var(--color-gray);
 }
 
 /* ============================================================================
@@ -623,6 +615,24 @@ button.mod-destructive:hover {
 }
 
 /* --- CALLOUTS ------------------------------------------------------------ */
+
+.theme-dark,
+.theme-light {
+    --callout-bug: var(--color-red);
+    --callout-default: var(--color-blue);
+    --callout-error: var(--color-red);
+    --callout-example: var(--color-purple);
+    --callout-fail: var(--color-red);
+    --callout-important: var(--color-cyan);
+    --callout-info: var(--color-yellow);
+    --callout-question: var(--color-orange);
+    --callout-success: var(--color-green);
+    --callout-summary: var(--color-cyan);
+    --callout-tip: var(--color-cyan);
+    --callout-todo: var(--color-blue);
+    --callout-warning: var(--color-orange);
+    --callout-quote: var(--color-gray);
+}
 
 .callout {
     background-color: transparent;
@@ -757,8 +767,22 @@ iframe {
 
 /* --- Links --- */
 body {
+    --link-color: var(--text-accent);
+    --link-color-hover: var(--text-accent-hover);
     --link-decoration: none;
     --link-decoration-hover: underline;
+
+    --link-unresolved-color: oklch(from var(--link-color) l c h / 0.7);
+    --link-unresolved-opacity: 1;
+    --link-unresolved-color-hover: oklch(
+        from var(--link-unresolved-color) l c h / 0.35
+    );
+    --link-unresolved-decoration-style: none;
+
+    --link-external-color: var(--link-color);
+    --link-external-color-hover: var(--link-color-hover);
+    --link-external-decoration: var(--link-decoration);
+    --link-external-decoration-hover: var(--link-decoration-hover);
 }
 
 /* --- TABLES -----------------------------------------------------------------
