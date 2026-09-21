@@ -35,6 +35,7 @@
   |_ Dataview
     |_ Inline fields
   |_ LanguageTool Integration
+  |_ Templater
 ---------------------------------------------------------------------------- */
 
 /* ============================================================================
@@ -576,7 +577,7 @@ body {
     --interactive-hover: oklch(from var(--interactive-normal) l c h / 0.5);
     --interactive-accent: oklch(from var(--color-accent) l c h);
     --interactive-accent-hover: oklch(
-        from var(--interactive-accent) l c h / 0.5
+        from var(--interactive-accent) l c h / 0.25
     );
 
     --background-modifier-error: oklch(from var(--color-red) l c h / 0.1);
@@ -584,8 +585,8 @@ body {
         from var(--background-modifier-error) l c h / 0.05
     );
 
-    --text-on-accent: oklch(from var(--background-primary) l c h);
-    --text-on-accent-inverted: oklch(var(--text-normal) l c h);
+    --text-on-accent: oklch(from var(--text-normal) l c h);
+    --text-on-accent-inverted: oklch(from var(--background-primary) l c h);
 
     --text-success: oklch(from var(--green) l c h);
     --text-warning: oklch(from var(--orange) l c h);
@@ -605,6 +606,11 @@ body {
    ========================================================================= */
 
 /* --- BUTTONS ------------------------------------------------------------- */
+
+/* .setting-group-filter.is-active {
+    color: var(--text-on-accent-inverted);
+    font-weight: bold;
+} */
 
 button.mod-destructive {
     background-color: var(--background-modifier-error);
@@ -992,4 +998,79 @@ body {
         transparent
     );
     box-shadow: none;
+}
+
+/* --- TEMPLATER ---------------------------------------------------------------
+** https://community.obsidian.md/plugins/templater-obsidian
+---------------------------------------------------------------------------- */
+
+/* --- Make Templater commands look like codeblocks --- */
+
+.cm-line.templater-command-bg,
+.cm-line.templater-inline .cm-templater-command {
+    background: var(--code-background);
+}
+
+.templater-inline:has(+ .cm-line.templater-command-bg) {
+    background: var(--code-background);
+
+    border-top-left-radius: var(--code-radius);
+    border-top-right-radius: var(--code-radius);
+    border-width: var(--code-border-width) var(--code-border-width) 0px
+        var(--code-border-width);
+
+    padding-left: var(--size-4-4);
+}
+
+.cm-line.cm-line.templater-command-bg {
+    padding-left: var(--size-4-4);
+}
+
+.cm-line.templater-command-bg + .templater-inline {
+    background: var(--code-background);
+
+    border-bottom-left-radius: var(--code-radius);
+    border-bottom-right-radius: var(--code-radius);
+    border-width: 0 var(--code-border-width) var(--code-border-width)
+        var(--code-border-width);
+
+    padding-left: var(--size-4-4);
+}
+
+/* --- Make inline Templater commands look like inline code --- */
+.cm-s-obsidian
+    .cm-templater-command.cm-templater-interpolation-tag.cm-templater-opening-tag,
+.cm-s-obsidian
+    .cm-templater-command.cm-templater-execution-tag.cm-templater-opening-tag {
+    background: var(--code-background);
+
+    padding-top: 0.15em;
+    padding-bottom: 0.15em;
+    padding-left: 0.3em;
+
+    border-top-left-radius: var(--code-radius);
+    border-bottom-left-radius: var(--code-radius);
+    border-width: var(--code-border-width) var(--code-border-width) 0px
+        var(--code-border-width);
+}
+
+.cm-line.templater-inline .cm-templater-command {
+    padding-top: 0.15em;
+    padding-bottom: 0.15em;
+}
+
+.cm-s-obsidian
+    .cm-templater-command.cm-templater-interpolation-tag.cm-templater-closing-tag,
+.cm-s-obsidian
+    .cm-templater-command.cm-templater-execution-tag.cm-templater-closing-tag {
+    background: var(--code-background);
+
+    padding-top: 0.15em;
+    padding-bottom: 0.15em;
+    padding-right: 0.3em;
+
+    border-top-right-radius: var(--code-radius);
+    border-bottom-right-radius: var(--code-radius);
+    border-width: var(--code-border-width) var(--code-border-width) 0px
+        var(--code-border-width);
 }
